@@ -1,5 +1,3 @@
-data "aws_caller_identity" "current" {}
-
 data "aws_eks_cluster" "cluster" {
   name = var.cluster_name
 }
@@ -12,6 +10,7 @@ locals {
   cluster_oidc_issuer = data.aws_eks_cluster.cluster.identity[0].oidc[0].issuer
 }
 
+#tfsec:ignore:aws-iam-no-policy-wildcards
 module "alb_policy" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-policy"
   version = "~> 4"

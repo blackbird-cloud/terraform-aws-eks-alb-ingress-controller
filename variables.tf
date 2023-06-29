@@ -1,19 +1,24 @@
 variable "aws_profile" {
-  type = string
+  type        = string
+  description = "AWS Profile"
 }
 
 variable "aws_region" {
-  type = string
+  type        = string
+  description = "AWS Region"
 }
 
 variable "cluster_name" {
-  type = string
+  type        = string
+  description = "EKS Cluster name"
 }
 
 variable "tags" {
-  type = map(string)
+  type        = map(string)
+  description = "Tags for deployment"
 }
 
 variable "vpc_id" {
-  type = string
+  type        = string
+  description = "VPC ID for loadbalancer deployment"
 }
